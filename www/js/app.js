@@ -8,7 +8,7 @@
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services',])
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
-  
+
 
   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
 
@@ -22,6 +22,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
     }
+
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
@@ -31,7 +32,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
 .directive('disableSideMenuDrag', ['$ionicSideMenuDelegate', '$rootScope', function($ionicSideMenuDelegate, $rootScope) {
     return {
-        restrict: "A",  
+        restrict: "A",
         controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
 
             function stopDrag(){

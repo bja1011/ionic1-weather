@@ -9813,3 +9813,6 @@ body.platform-android {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .tab-item, input, button, select, textarea {
   font-family: inherit; }
+
+#page-main {
+  background-size: cover !important; }

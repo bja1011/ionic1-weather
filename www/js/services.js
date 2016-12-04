@@ -5,8 +5,8 @@ angular.module('app.services', [])
 
     service.get = function (location) {
       if (typeof location == 'string') {
-        return $http.get('http://api.openweathermap.org/data/2.5/forecast?q=' + location + '&appid=1929fffb238baf259922bfbb99ae5a73');
-      } else return $http.get('http://api.openweathermap.org/data/2.5/forecast?lat=' + location.coords.latitude + '&lon=' + location.coords.longitude + '&appid=1929fffb238baf259922bfbb99ae5a73');
+        return $http.get('http://api.openweathermap.org/data/2.5/forecast?q=' + location + '&appid=1929fffb238baf259922bfbb99ae5a73&units=metric');
+      } else return $http.get('http://api.openweathermap.org/data/2.5/forecast?lat=' + location.coords.latitude + '&lon=' + location.coords.longitude + '&appid=1929fffb238baf259922bfbb99ae5a73&units=metric');
     };
 
     return service;
@@ -39,11 +39,15 @@ angular.module('app.services', [])
 
       var queryString =
         "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1543c174a55e5b9b83d44ce2945005a5&lat="
-        + latitude + "&lon=" + longitude + "&format=json&nojsoncallback=1&tags=sunrise";
+        + latitude + "&lon=" + longitude + "&format=json&nojsoncallback=1";
 
       return $http.get(queryString);
 
     };
+
+    service.flickrItemImage = function (item) {
+      return "http://farm" + item.farm + ".static.flickr.com/" + item.server + "/" + item.id + "_" + item.secret + ".jpg";
+    }
 
     return service;
   });

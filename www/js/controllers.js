@@ -14,7 +14,7 @@ angular.module('app.controllers', [])
             miscService.getPictures(location.coords.latitude, location.coords.longitude)
               .then(function (resp) {
                 t.pictures = resp.data;
-                t.mainImage = t.flickrItemImage(t.pictures.photos.photo[0]);
+                t.mainImage = miscService.flickrItemImage(t.pictures.photos.photo[0]);
               })
             weatherService.get(location)
               .then(function (resp) {
@@ -25,10 +25,6 @@ angular.module('app.controllers', [])
       }
 
       t.getWeather();
-
-      t.flickrItemImage = function (item) {
-        return "http://farm" + item.farm + ".static.flickr.com/" + item.server + "/" + item.id + "_" + item.secret + ".jpg";
-      }
 
 
     }])
